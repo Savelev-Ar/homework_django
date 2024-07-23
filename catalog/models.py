@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Category(models.Model):
     name = models.CharField(
         max_length=150,
@@ -20,6 +21,7 @@ class Category(models.Model):
         verbose_name = 'категория'
         verbose_name_plural = 'категории'
         ordering = ('name',)
+
 
 class Product(models.Model):
     name = models.CharField(
@@ -50,13 +52,17 @@ class Product(models.Model):
         verbose_name='Цена',
         help_text='Введите цену'
     )
-
+    manufactured_at = models.DateField(
+        verbose_name='Дата производства',
+        help_text='Дата производства продукта',
+        blank=True,
+        null=True
+    )
     created_at = models.DateTimeField(
         auto_now_add=True,
         verbose_name='Дата создания',
         help_text='Дата создания записи'
     )
-
     updated_at = models.DateTimeField(
         auto_now=True,
         verbose_name='Дата изменения',
