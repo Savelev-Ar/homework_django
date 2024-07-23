@@ -52,12 +52,6 @@ class Product(models.Model):
         verbose_name='Цена',
         help_text='Введите цену'
     )
-    manufactured_at = models.DateField(
-        verbose_name='Дата производства',
-        help_text='Дата производства продукта',
-        blank=True,
-        null=True
-    )
     created_at = models.DateTimeField(
         auto_now_add=True,
         verbose_name='Дата создания',
