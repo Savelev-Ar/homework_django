@@ -1,0 +1,30 @@
+[
+  {
+    "model": "catalog.category",
+    "fields": {
+      "name": "фрукты",
+      "description": null
+    }
+  },
+  {
+    "model": "catalog.category",
+    "fields": {
+      "name": "овощи",
+      "description": "можно кушать"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "fields": {
+      "name": "мясо",
+      "description": "вкуснее овощей"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "fields": {
+      "name": "игровые консоли",
+      "description": "можно играть"
+    }
+  }
+]
