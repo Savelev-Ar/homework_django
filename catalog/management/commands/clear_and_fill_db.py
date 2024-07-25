@@ -32,7 +32,6 @@ class Command(BaseCommand):
             {'name': 'коробокс', 'description': 'не забудь подписка', 'category': Category.objects.get(pk=4),
              'price': 2000}
         ]
-
         products_for_create = []
         for product in products_list:
             products_for_create.append(
