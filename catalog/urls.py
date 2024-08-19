@@ -1,8 +1,9 @@
 from django.urls import path
 
-from catalog.views import (ProductListView, ProductDetailView,
-                           ContactsTemplateView,
-                           BlogCreateView, BlogListView, BlogDetailView, BlogDeleteView, BlogUpdateView)
+from catalog.views import ProductListView, ProductDetailView, ContactsTemplateView
+
+from blog.views import BlogCreateView, BlogListView, BlogDetailView, BlogDeleteView, BlogUpdateView
+
 
 app_name = 'students_list'
 
