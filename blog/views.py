@@ -4,6 +4,7 @@ from django.views.generic import ListView, DetailView, TemplateView, CreateView,
 from pytils.translit import slugify
 from blog.models import Blog
 
+
 class BlogCreateView(CreateView):
     model = Blog
     fields = ('header', 'content', 'preview')
@@ -16,6 +17,7 @@ class BlogCreateView(CreateView):
             new_blog.save()
             return super().form_valid(form)
 
+
 class BlogListView(ListView):
     model = Blog
     fields = ('header', 'view_count')
@@ -24,6 +26,7 @@ class BlogListView(ListView):
         queryset = super().get_queryset(*args, **kwargs)
         queryset = queryset.filter(is_posted=True)
         return queryset
+
 
 class BlogDetailView(DetailView):
     model = Blog
@@ -38,7 +41,6 @@ class BlogDetailView(DetailView):
 class BlogUpdateView(UpdateView):
     model = Blog
     fields = ('header', 'content', 'preview')
-    #success_url = reverse_lazy('catalog:list_blog')
 
     def form_valid(self, form):
         if form.is_valid():
@@ -46,8 +48,10 @@ class BlogUpdateView(UpdateView):
             new_blog.slug = slugify(new_blog.header)
             new_blog.save()
             return super().form_valid(form)
+
     def get_success_url(self):
         return reverse('catalog:detail_blog', args=[self.kwargs.get('pk')])
+
 
 class BlogDeleteView(DeleteView):
     model = Blog

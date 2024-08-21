@@ -19,6 +19,7 @@ class ProductListView(ListView):
             product.version = version
         return context_data
 
+
 class ProductDetailView(DetailView):
     model = Product
     form_class = ProductForm
@@ -28,12 +29,11 @@ class ContactsTemplateView(TemplateView):
     template_name = 'contacts.html'
 
 
-
-
 class ProductCreateView(CreateView):
     model = Product
     form_class = ProductForm
     success_url = reverse_lazy('catalog:list_product')
+
     def get_context_data(self, *args, **kwargs):
         context_data = super().get_context_data(*args, **kwargs)
         VersionFormset = inlineformset_factory(Product, Version, form=VersionForm, extra=1)
@@ -43,6 +43,7 @@ class ProductCreateView(CreateView):
         else:
             context_data['formset'] = VersionFormset()
         return context_data
+
     def form_valid(self, form):
         formset = self.get_context_data()['formset']
         self.object = form.save()
@@ -66,6 +67,7 @@ class ProductUpdateView(UpdateView):
         else:
             context_data['formset'] = VersionFormset(instance=self.object)
         return context_data
+
     def form_valid(self, form):
         formset = self.get_context_data()['formset']
         self.object = form.save()
@@ -74,8 +76,10 @@ class ProductUpdateView(UpdateView):
             formset.save()
 
         return super().form_valid(form)
+
     def get_success_url(self):
         return reverse('catalog:detail_product', args=[self.kwargs.get('pk')])
+
 
 class ProductDeleteView(DeleteView):
     model = Product

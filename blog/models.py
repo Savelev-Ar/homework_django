@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Blog(models.Model):
     header = models.CharField(
         max_length=150,
@@ -47,4 +48,3 @@ class Blog(models.Model):
     class Meta:
         verbose_name = 'публикация'
         verbose_name_plural = 'публикации'
-
