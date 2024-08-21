@@ -1,0 +1,37 @@
+{% extends 'home.html' %}
+{% load custome_tags %}
+{% block content %}
+<div class="col-12">
+    <a class="btn btn-outline-primary" href="product\create">Добавить продукт </a>
+{% for object in object_list %}
+        <div class="col-3">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">{{ object.name | title }}</h4>
+                    <h4 class="my-0 font-weight-normal"><img class="card-img-top" src="{% mymedia object.preview %}">
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title">{{ object.price }}</h1>
+                    <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                        <li>{% if object.description == None %}
+                            нет описания
+                            {% else %}
+                            {{ object.description|slice:"0:100"}}
+                            {% endif %}
+                        </li>
+                    </ul>
+                    <div class="btn-group">
+                        <a href="{% url 'catalog:detail_product' object.pk %}"
+                           class="btn btn-sm btn-outline-secondary">Посмотреть</a>
+                        <a href="{% url 'catalog:update_product' object.pk %}"
+                           class="btn btn-sm btn-outline-secondary">Редактировать</a>
+                        <a href="{% url 'catalog:delete_product' object.pk %}"
+                           class="btn btn-sm btn-outline-secondary">удалить</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endfor %}
+{% endblock %}
