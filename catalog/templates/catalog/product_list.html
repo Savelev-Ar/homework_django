@@ -14,10 +14,16 @@
                 <div class="card-body">
                     <h1 class="card-title pricing-card-title">{{ object.price }}</h1>
                     <ul class="list-unstyled mt-3 mb-4 text-start m-3">
-                        <li>{% if object.description == None %}
+                        <li>Описание: {% if object.description == None %}
                             нет описания
                             {% else %}
                             {{ object.description|slice:"0:100"}}
+                            {% endif %}
+                        </li>
+                        <li>Версия: {% if object.version != None %}
+                            {{ object.version}}
+                            {% else %}
+                            no version
                             {% endif %}
                         </li>
                     </ul>
@@ -29,6 +35,7 @@
                         <a href="{% url 'catalog:delete_product' object.pk %}"
                            class="btn btn-sm btn-outline-secondary">удалить</a>
                     </div>
+                    <div class="card-footer"></div>
                 </div>
             </div>
         </div>

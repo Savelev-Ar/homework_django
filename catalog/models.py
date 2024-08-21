@@ -94,7 +94,7 @@ class Version(models.Model):
     )
 
     def __str__(self):
-        return f'{self.name}'
+        return f'{self.name} {self.number_version}'
 
     class Meta:
         verbose_name = 'версия'
