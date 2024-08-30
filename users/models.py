@@ -24,8 +24,8 @@ class User(AbstractUser):
     )
     country = models.CharField(
         max_length=35,
-        verbose_name='телефон',
-        help_text='Введите номер телефона',
+        verbose_name='Страна',
+        help_text='Введите название страны',
         blank=True,
         null=True
     )
