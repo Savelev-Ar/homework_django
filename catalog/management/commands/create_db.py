@@ -3,7 +3,7 @@ from configparser import ConfigParser
 import psycopg2
 
 
-def read_config_db(filename="database.ini", section="postgresql"):
+def read_config_db(filename="settings.ini", section="postgresql"):
     # create a parser
     parser = ConfigParser()
     # read config file

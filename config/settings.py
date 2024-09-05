@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+from mail_config import read_config_mail
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -131,3 +131,17 @@ MEDIA_ROOT = BASE_DIR / 'media'
 AUTH_USER_MODEL = 'users.User'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+# Mail settings
+mail_conf = read_config_mail()
+
+EMAIL_HOST = mail_conf['email_host']
+EMAIL_PORT = mail_conf['email_port']
+EMAIL_HOST_USER = mail_conf['email_host_user']
+EMAIL_HOST_PASSWORD = mail_conf['email_host_password']
+EMAIL_USE_TLS = mail_conf['email_use_tls'] == 'True'
+EMAIL_USE_SSL = mail_conf['email_use_ssl'] == 'True'
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SERVER_EMAIL = EMAIL_HOST_USER
+EMAIL_ADMIN = EMAIL_HOST_USER
