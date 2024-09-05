@@ -1,4 +1,5 @@
 from django.db import models
+from users.models import User
 
 
 class Category(models.Model):
@@ -61,6 +62,12 @@ class Product(models.Model):
         auto_now=True,
         verbose_name='Дата изменения',
         help_text='Дата последнего изменения записи'
+    )
+    owner = models.ForeignKey(
+        User, on_delete=models.SET_NULL,
+        verbose_name="Создан пользователем",
+        blank=True,
+        null=True
     )
 
     def __str__(self):

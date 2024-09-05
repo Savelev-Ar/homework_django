@@ -57,6 +57,11 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
             formset.instance = self.object
             formset.save()
 
+        if form.is_valid():
+            new_product = form.save()
+            new_product.owner = self.request.user
+            new_product.save()
+
         return super().form_valid(form)
 
 
