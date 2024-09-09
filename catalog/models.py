@@ -69,6 +69,11 @@ class Product(models.Model):
         blank=True,
         null=True
     )
+    is_posted = models.BooleanField(
+        verbose_name='Опубликован',
+        help_text='Признак публикации',
+        default=False
+    )
 
     def __str__(self):
         return f'{self.name} {self.price}'
@@ -77,6 +82,11 @@ class Product(models.Model):
         verbose_name = 'продукт'
         verbose_name_plural = 'продукты'
         ordering = ('name',)
+        permissions = [
+            ('can_edit_is_posted', 'Опубликовать'),
+            ('can_edit_description', 'Редактировать описание'),
+            ('can_change_category', 'Изменить категорию')
+        ]
 
 
 class Version(models.Model):
