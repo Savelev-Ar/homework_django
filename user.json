@@ -1,0 +1,46 @@
+[
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$FYOUzqxJnUoyEc02bns5bg$wk0+zpglIPF95Y/vKhmAREiYx1+D9TAck1I+BXoYaxE=",
+      "last_login": "2024-09-10T02:58:15.251Z",
+      "is_superuser": true,
+      "first_name": "Admin",
+      "last_name": "SkyPro",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-08-28T15:28:43.726Z",
+      "email": "admin@sky.pro",
+      "phone": null,
+      "avatar": "",
+      "country": null,
+      "token": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 18,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$Q4JZcjJwZv3ufbXbBsG6pc$+hqRzal12l04KHlHQUcgL15KamFGbNhm13+Vd0LvnRE=",
+      "last_login": "2024-09-05T09:35:40Z",
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-05T04:49:29Z",
+      "email": "savic@gmail.com",
+      "phone": null,
+      "avatar": "",
+      "country": null,
+      "token": "8602c45714a339de70d05b52b82d608d",
+      "groups": [
+        1
+      ],
+      "user_permissions": []
+    }
+  }
+]
