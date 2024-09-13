@@ -1,0 +1,22 @@
+{% extends 'home.html' %}
+{% load custome_tags %}
+{% block content %}
+<div class="col-1 mb-10">
+</div>
+<div class="album py-5 bg-body-tertiary">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for object in object_list %}
+        <div class="col">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <p class="card-text">{{ object|title }}</p>
+              <p class="card-text">Описание: {{ object.description|truncatechars:100 }}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

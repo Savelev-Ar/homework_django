@@ -2,7 +2,10 @@ asgiref==3.8.1
 Django==4.2.14
 sqlparse==0.5.1
 typing_extensions==4.12.2
-psycopg2
-pillow
-ipython
-pytils
+psycopg2==2.9.9
+pillow==10.4.0
+ipython==8.18.1
+pytils==0.4.1
+redis==5.0.8
+dotenv==1.0.1
+

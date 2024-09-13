@@ -2,8 +2,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView
 from django.forms import inlineformset_factory
-from catalog.models import Product, Version
+from catalog.models import Product, Version, Category
 from catalog.forms import ProductForm, VersionForm
+from catalog.services import get_category
 
 
 class ProductListView(LoginRequiredMixin, ListView):
@@ -99,3 +100,8 @@ class ProductDeleteView(LoginRequiredMixin, DeleteView):
     redirect_field_name = 'redirect_to'
     model = Product
     success_url = reverse_lazy('catalog:list_product')
+
+class CategoryListView(ListView):
+    model = Category
+    def get_queryset(self):
+        return get_category()
